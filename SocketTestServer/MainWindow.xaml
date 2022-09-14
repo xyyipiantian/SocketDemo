@@ -1,0 +1,97 @@
+﻿<Window
+    x:Class="SocketTestServer.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Width="800"
+    Height="450">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                <Label
+                    Margin="25,5,5,0"
+                    HorizontalAlignment="Left"
+                    Content="IP:" />
+                <TextBox
+                    Name="tb_IPValue"
+                    Width="106"
+                    Height="22"
+                    HorizontalAlignment="Right" />
+            </StackPanel>
+            <StackPanel
+                Grid.Column="1"
+                HorizontalAlignment="Center"
+                Orientation="Horizontal">
+                <Label
+                    Margin="25,5,5,0"
+                    HorizontalAlignment="Left"
+                    Content="Port:" />
+                <TextBox
+                    Name="tb_PortValue"
+                    Width="106"
+                    Height="22"
+                    HorizontalAlignment="Right" />
+            </StackPanel>
+            <Button
+                x:Name="bt_Start"
+                Grid.Column="2"
+                Width="50"
+                Height="26"
+                HorizontalAlignment="Center"
+                Click="bt_Start_Click"
+                Content="开始连接" />
+        </Grid>
+
+        <Grid
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="3">
+            <TextBox x:Name="rtb_Log" Panel.ZIndex="1" />
+        </Grid>
+        <Grid Grid.Row="2" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Orientation="Horizontal">
+                <TextBox
+                    x:Name="tb_Message"
+                    Width="300"
+                    Height="30"
+                    Margin="25,5,5,5"
+                    HorizontalAlignment="Left" />
+                <ComboBox
+                    Name="cb_Users"
+                    Width="150"
+                    Height="30"
+                    Margin="5,5,5,5"
+                    HorizontalAlignment="Right" />
+            </StackPanel>
+
+            <Button
+                x:Name="bt_Send"
+                Grid.Column="1"
+                Width="50"
+                Height="25"
+                Margin="100,5,25,5"
+                HorizontalAlignment="Left"
+                Click="bt_Send_Click"
+                Content="发送消息" />
+        </Grid>
+    </Grid>
+</Window>
